@@ -5,7 +5,7 @@ vim.g.maplocalleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Exit file to netrw" })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Remove search highlights" })
--- vim.keymap.set("n", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }); horible remap esc2x lags quitting that needs esc2x
+--vim.keymap.set("n", "<C-c>", "<C-\\><C-n>", { desc = "Exit terminal mode" });
 
 -- better window navigation
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
@@ -25,3 +25,7 @@ vim.keymap.set("v", ">", ">gv", { desc = "Ident right" })
 
 -- hero
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "Best thing ever" })
+
+-- identation helper 
+vim.keymap.set("n", "<leader>bl", function() require("ibl").setup() end, { desc = "BlankLine enable" })
+vim.keymap.set("n", "<leader>bL", "<cmd>IBLDisable<CR>", { desc = "BlankLine disable" })

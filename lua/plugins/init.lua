@@ -5,7 +5,7 @@ return {
   {
     "folke/neoconf.nvim",
     cmd = "Neoconf",
-    dependecies = { "neovim/nvim-lspconfig" }
+    dependencies = { "neovim/nvim-lspconfig" }
   },
   {
     "nvim-lua/plenary.nvim",

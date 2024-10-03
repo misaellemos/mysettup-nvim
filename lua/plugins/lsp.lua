@@ -4,7 +4,7 @@ return {
   "williamboman/mason-lspconfig.nvim",
   {
     "neovim/nvim-lspconfig",
-    dependecies = {
+    dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
     },

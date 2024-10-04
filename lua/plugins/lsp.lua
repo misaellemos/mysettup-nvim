@@ -1,19 +1,21 @@
+
 -- timestamp primeagen 23min20sec
 return {
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      "mfussenegger/nvim-dap",
+      "jay-babu/mason-nvim-dap.nvim",
     },
 
     config = function()
       require("mason").setup()
+      require("mason-nvim-dap").setup({ ensure_installed = { "java-debug-adapter", "java-test" } })
+
       require("mason-lspconfig").setup({
-        --ensure_installed = { "lua_ls", "rust_analyzer", "jdtls", "clang-format" },
-        ensure_installed = { "lua_ls", "rust_analyzer", "jdtls" },
+        ensure_installed = { "lua_ls", "rust_analyzer", "jdtls", "ts_ls"  },
         handlers = {
           function (server_name) -- default handler
             print("setting up ", server_name)
@@ -21,7 +23,9 @@ return {
           end,
         },
       })
-      require('lspconfig').lua_ls.setup {
+
+      local lspconfig = require("lspconfig")
+      lspconfig.lua_ls.setup {
         settings = {
           Lua = {
             runtime = {
@@ -47,13 +51,13 @@ return {
           },
         },
       }
+
+      lspconfig.ts_ls.setup({})
     end,
 
     -- After setting up mason-lspconfig you may set up servers via lspconfig
     -- require("lspconfig").lua_ls.setup {}
     -- require("lspconfig").rust_analyzer.setup {}
-    -- ...d
   },
+  { "mfussenegger/nvim-jdtls", dependencies = "mfussenegger/nvim-dap" },
 }
--- vim-language-server (keywords: vimscript)
---  clangd

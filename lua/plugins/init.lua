@@ -18,5 +18,11 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
   },
   "mfussenegger/nvim-jdtls",
-  ---:  { "github/copilot.vim" },
+  --  { "github/copilot.vim" },
+  {
+    "L3MON4D3/LuaSnip",
+    build = "make install_jsregexp",
+    dependencies = { "rafamadriz/friendly-snippets" },
+  },
+  { "mfussenegger/nvim-jdtls", dependencies = "mfussenegger/nvim-dap" },
 }

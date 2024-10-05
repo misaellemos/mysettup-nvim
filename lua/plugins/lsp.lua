@@ -1,7 +1,6 @@
 
 -- timestamp primeagen 23min20sec
 return {
-  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
@@ -25,7 +24,9 @@ return {
       })
 
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup {
+      local capabilities =require("cmp_nvim_lsp").default_capabilities()
+
+      lspconfig.lua_ls.setup({
         settings = {
           Lua = {
             runtime = {
@@ -50,14 +51,15 @@ return {
             },
           },
         },
-      }
+        capabilities = capabilities,
+      })
 
-      lspconfig.ts_ls.setup({})
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities,
+      })
     end,
 
     -- After setting up mason-lspconfig you may set up servers via lspconfig
     -- require("lspconfig").lua_ls.setup {}
     -- require("lspconfig").rust_analyzer.setup {}
-  },
-  { "mfussenegger/nvim-jdtls", dependencies = "mfussenegger/nvim-dap" },
 }

@@ -1,6 +1,7 @@
--- timestamp 2h20m
+
 return {
   "hrsh7th/nvim-cmp",
+  event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lua",
@@ -13,12 +14,17 @@ return {
 
   config = function()
     local cmp = require("cmp")
-    vim.opt.completeopt = { "menu", "menuone", "noselect" }
+    local luasnip = require("luasnip")
+    require("luasnip.loaders.from_vscode").lazy_load() -- Lazily load the vscode like snippets
+    --vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
     cmp.setup({
+      completion = {
+        competeopt = "menu,menuone,preview,noselect"
+      },
       snippet = {
         expand = function(args)
-          require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+          luasnip.lsp_expand(args.body)
         end,
       },
       window = {
@@ -26,35 +32,21 @@ return {
         -- documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert({
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<C-j>'] = cmp.mapping.select_next_item(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-Tab>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ['<Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
---        ['<S-Tab>'] = cmp.mapping(function(fallback)
---          if cmp.visible() then
---            cmp.select_prev_item()
---          elseif luasnip.jumpable(-1) then
---            luasnip.jump(-1)
---          else
---            fallback()
---          end
---        end, { 'i', 'c' }),
-        vim.keymap.set('v', '<S-Tab', '<up>'), -- s-tab config didnt work so we do gambiarra
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),-- Set `false` to only confirm explicitly selected items
+        -- addicted to Tab
+        ['<Tab>'] = cmp.mapping.select_next_item(),
+        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
-        { name = "luasnip" }, -- For luasnip users.
+        { name = "luasnip" },
       }, {
           { name = "buffer" },
           { name = "path" },

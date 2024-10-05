@@ -25,4 +25,5 @@ return {
     dependencies = { "rafamadriz/friendly-snippets" },
   },
   { "mfussenegger/nvim-jdtls", dependencies = "mfussenegger/nvim-dap" },
+--  { "echasnovski/mini.icons" },
 }

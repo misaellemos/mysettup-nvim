@@ -8,7 +8,7 @@ vim.keymap.set('n', '<leader>pb', builtin.buffers, { desc = "Search exiting buff
 vim.keymap.set('n', '<leader>po', builtin.oldfiles, { desc = "Search recent files (Telescope)" }) -- paia
 vim.keymap.set('n', '<leader>pd', builtin.diagnostics, { desc = "Search diagnostics (Telescope)" }) -- paia
 
-vim.keymap.set('n', '<leader>Pf', function() builtin.find_files({ cwd = vim.fn.expand('$HOME') }) end,
+vim.keymap.set('n', '<leader>pF', function() builtin.find_files({ cwd = vim.fn.expand('$HOME') }) end,
   { desc = "Search files from $HOME (Telescope)" })
 
 vim.keymap.set('n', '<leader>ps', function()
@@ -18,9 +18,9 @@ end, { desc = "Search string (Telescope)" })
 vim.keymap.set('n', '<leader>pws', function()
   local word = vim.fn.expand("<cword>")
   builtin.grep_string({ search = word });
-end, { desc = "Search word buffer (Telescope)" })
+end, { desc = "Search first word in buffer (Telescope)" })
 
-vim.keymap.set('n', '<leader>pWs', function()
+vim.keymap.set('n', '<leader>pwS', function()
   local word = vim.fn.expand("<cWORD>")
   builtin.grep_string({ search = word });
 end, { desc = "Search whole buffer (Telescope)" })

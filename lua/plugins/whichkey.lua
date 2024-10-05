@@ -41,5 +41,3 @@ return {
     })
   end,
 }
---  { plugin = "nvim-spectre", icon = "󰛔 ", color = "blue" },
- -- { pattern = "search", icon = " ", color = "green" },

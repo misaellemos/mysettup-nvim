@@ -32,7 +32,6 @@ vim.opt.hlsearch = true
 vim.opt.cmdheight = 0
 vim.opt.clipboard = "unnamedplus"
 vim.opt.termguicolors = true
-vim.opt.background = "dark"
 vim.g.transparent_enabled = true
 vim.completeopt = "menu,menuone,noselect"
 vim.opt.splitbelow = true

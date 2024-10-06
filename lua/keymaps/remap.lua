@@ -5,7 +5,7 @@
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Exit file to netrw" })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Remove search highlights" })
---vim.keymap.set("n", "<C-c>", "<C-\\><C-n>", { desc = "Exit terminal mode" });
+vim.keymap.set("n", "<C-c>", "<C-\\><C-n>", { desc = "Exit terminal mode" });
 
 -- better window navigation
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })

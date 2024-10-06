@@ -6,8 +6,8 @@ require("keymaps.telescope")
 require("keymaps.harpoon")
 
 -- enable mouse
---vim.opt.mouse = "a"
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
+--vim.opt.mouse = ""
 
 -- line number
 vim.opt.relativenumber = true

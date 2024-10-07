@@ -47,7 +47,7 @@ vim.opt.sidescrolloff = 8
 
 -- setting current cursor line color
 vim.o.cursorline = true
-vim.api.nvim_set_hl(0, 'LineNr', { fg = "#d8dee9"})
-vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = "yellow"})
+--vim.api.nvim_set_hl(0, 'LineNr', { fg = "#d8dee9"})
+--vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = "yellow"})
 --vim.opt.cursorlineopt = "number"
 --vim.opt.cursorline = true

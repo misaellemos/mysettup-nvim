@@ -1,5 +1,8 @@
 
--- timestamp primeagen 23min20sec
+-- remember to install in Mason if not installed auto:
+-- lua_ls, rust_analyzer, jdtls, ts_ls
+-- java-debug-adapter, java-test, google-java-format
+-- eslint_d, prettier, stylua
 return {
     "neovim/nvim-lspconfig",
     dependencies = {

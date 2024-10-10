@@ -49,11 +49,11 @@ return {
     "tpope/vim-fugitive",
     config = function()
       -- view the most recent contributers to the file
-      vim.keymap.set("n", "<leader>gb", ":Git blame<cr>", { desc = "Git Blame (Fugitive)" })
-      vim.keymap.set("n", "<leader>gA", ":Git add .<cr>", { desc = "Git Add All (Fugitive)" })
-      vim.keymap.set("n", "<leader>ga", "Git add", { desc = "Git Add (Fugitive)" })
-      vim.keymap.set("n", "<leader>gc", ":Git commit", { desc = "Git Commit (Fugitive)" })
-      vim.keymap.set("n", "<leader>gp", "Git push", { desc = "Git Push (Fugitive)" })
+      vim.keymap.set("n", "<leader>ga", ":Git add %:.<CR>", { desc = "Git Add (Fugitive)" })
+      vim.keymap.set("n", "<leader>gA", ":Git add .<CR>", { desc = "Git Add All (Fugitive)" })
+      vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "Git Blame (Fugitive)" })
+      vim.keymap.set("n", "<leader>gc", ":Git commit -m \"", { desc = "Git Commit (Fugitive)" })
+      vim.keymap.set("n", "<leader>gp", ":Git push -u origin ", { desc = "Git Push (Fugitive)" })
       vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Search git (Fugitive)" })
     end,
   },

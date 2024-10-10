@@ -19,7 +19,5 @@ return {
     build = "make install_jsregexp",
     dependencies = { "rafamadriz/friendly-snippets" },
   },
-  { "mfussenegger/nvim-jdtls", dependencies = "mfussenegger/nvim-dap" },
   --  { "github/copilot.vim" },
---  { "echasnovski/mini.icons" },
 }

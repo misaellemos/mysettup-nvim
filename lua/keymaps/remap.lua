@@ -29,9 +29,6 @@ vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv", { desc = "Move marked text" })
 vim.keymap.set("v", "<", "<gv", { desc = "Ident left" })
 vim.keymap.set("v", ">", ">gv", { desc = "Ident right" })
 
--- hero
-vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "Best thing ever" })
-
 -- identation helper 
 vim.keymap.set("n", "<leader>bl", function() require("ibl").setup() end, { desc = "BlankLine enable" })
 vim.keymap.set("n", "<leader>bL", "<cmd>IBLDisable<CR>", { desc = "BlankLine disable" })

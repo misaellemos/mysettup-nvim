@@ -7,7 +7,6 @@ return {
     dependencies = { "neovim/nvim-lspconfig" }
   },
   { "nvim-lua/plenary.nvim", lazy = true },
-  { "Eandrju/cellular-automaton.nvim" },
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",

@@ -14,6 +14,10 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.numberwidth = 3
 vim.opt.signcolumn = "yes"
+-- vim.opt.colorcolumn = "200"
+
+-- enable relative number in netrw
+vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
 
 -- tab config
 vim.opt.expandtab = true
@@ -39,7 +43,6 @@ vim.opt.splitright = true
 vim.opt.updatetime = 100 -- faster completion
 vim.opt.writebackup = false -- prevent editing files openned elsewhere
 --vim.opt.undofile = true -- create an undofile; enable undo after reopening nvim
--- opt.colorcolumn = "100"
 
 -- setting scroll limits; keep minimum x number of screen lines above and below the cursor
 vim.opt.scrolloff = 10
